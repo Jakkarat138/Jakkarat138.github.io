@@ -1,13 +1,390 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Github</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resume - Jakkarat Kaewpech</title>
+  <style>
+    :root {
+      --primary: #5b6ef5;
+      --secondary: #7ee0f6;
+      --accent: #f4a7f8;
+      --bg: #f9fbff;
+      --text: #333;
+      --card-bg: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Poppins", "Segoe UI", Arial, sans-serif;
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    /* HEADER */
+    header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      padding: 4rem 2rem;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      border-bottom-left-radius: 60px;
+      border-bottom-right-radius: 60px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      text-align: left;
+    }
+
+    .profile-pic {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid #fff;
+      box-shadow: 0 0 20px rgba(255,255,255,0.5), 0 0 40px rgba(91,110,245,0.6);
+      transition: 0.4s ease;
+    }
+
+    .profile-pic:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 30px rgba(255,255,255,0.7), 0 0 60px rgba(91,110,245,0.8);
+    }
+
+    .header-text {
+      max-width: 500px;
+    }
+
+    .header-text h1 {
+      font-size: 2.5rem;
+      margin: 0 0 0.5rem;
+      font-weight: 700;
+    }
+
+    .header-text p {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      opacity: 0.95;
+    }
+
+    nav {
+      margin-top: 1rem;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-right: 1rem;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      opacity: 0.85;
+      text-decoration: underline;
+    }
+
+    section {
+      max-width: 900px;
+      margin: 4rem auto;
+      padding: 0 1.5rem;
+    }
+
+    h2 {
+      color: var(--primary);
+      font-size: 1.8rem;
+      border-left: 6px solid var(--accent);
+      padding-left: 0.7rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: 15px;
+      padding: 1.8rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.07);
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    }
+
+    .skills-grid, .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .skill-item, .project-item {
+      background: var(--card-bg);
+      border-radius: 15px;
+      padding: 1.5rem;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.07);
+      transition: 0.3s;
+    }
+
+    .skill-item:hover, .project-item:hover {
+      background: var(--secondary);
+      color: #fff;
+      transform: translateY(-3px);
+    }
+
+    .project-item img {
+      width: 100%;
+      max-height: 180px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 1rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: 0.3s;
+      cursor: pointer;
+    }
+
+    .project-item img:hover {
+      transform: scale(1.03);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+    }
+
+    .project-item h3 {
+      margin: 0.5rem 0;
+      color: var(--primary);
+    }
+
+    .contact-card {
+      text-align: center;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 1rem;
+      background: var(--primary);
+      color: #fff;
+      padding: 0.8rem 1.5rem;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: var(--accent);
+      transform: scale(1.05);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: linear-gradient(135deg, var(--secondary), var(--primary));
+      color: #fff;
+      border-top-left-radius: 40px;
+      border-top-right-radius: 40px;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .header-text {
+        text-align: center;
+      }
+
+      .profile-pic {
+        width: 140px;
+        height: 140px;
+      }
+
+      .header-text h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
 </head>
 <body>
-    <h1> Jakkarat Kaewpech </h1>
-    <h2>Fist pagr from Github</h2>
-    <a href="https://hosting.udru.ac.th/it66040233138/">My web</a>
+
+  <header>
+    <img src="jakk.jpg" alt="Profile Picture" class="profile-pic">
+    <div class="header-text">
+      <h1>จักรรัตน์ แก้วเพชร <br>(Jakkarat Kaewpech)</h1>
+      <p>สถานะ : กำลังศึกษา</p>
+      <p>Web Developer | Frontend Developer | Backend Developer</p>
+      <nav>
+        <a href="#about">เกี่ยวกับ</a>
+        <a href="#education">การศึกษา</a>
+        <a href="#skills">ทักษะ</a>
+        <a href="#projects">โปรเจกต์</a>
+        <a href="#contact">ติดต่อ</a>
+      </nav>
+    </div>
+  </header>
+
+  <section id="about">
+    <h2>เกี่ยวกับฉัน</h2>
+    <div class="card">
+      <p>
+        ผมนาย จักรรัตน์ แก้วเพชร (เปอร์) ปัจจุบันกำลังศึกษาอยู่ที่มหาวิทยาลัยราชภัฏอุดรธานี  
+        คณะวิทยาศาสตร์ สาขาเทคโนโลยีสารสนเทศ  
+        ผมมีความสนใจด้านการสร้างเว็บไซต์ เพราะรู้สึกสนุกที่ได้ออกแบบและทำให้สิ่งที่คิดกลายเป็นจริง  
+        ชอบเรียนรู้เทคโนโลยีใหม่ ๆ เช่น HTML, CSS, JavaScript  
+        เป้าหมายของผมคือการพัฒนาเป็น Frontend Developer ที่สามารถสร้างเว็บไซต์ที่สวยงามและใช้งานได้ดี  
+        เป็นคนตั้งใจเรียนรู้ ทำงานเป็นทีมได้ดี และชอบพัฒนาตัวเองอยู่เสมอ
+      </p>
+    </div>
+  </section>
+
+  <section id="education">
+    <h2>การศึกษา (Education)</h2>
+    <div class="card">
+      <h3>มหาวิทยาลัยราชภัฏอุดรธานี (UDRU)</h3>
+      <p><strong>ปี 2566 – ปัจจุบัน</strong></p>
+      <p>วุฒิการศึกษา: <strong>ปริญญาตรี (กำลังศึกษาชั้นปีที่ 3)</strong></p>
+      <p>สาขา: <strong>สาขาเทคโนโลยีสารสนเทศ (Information Technology)</strong></p>
+      <p>ก่อนหน้านี้จบการศึกษาระดับประถมที่โรงเรียนอนุบาลสังคม <br>มัธยมที่โรงเรียนสังคมวิทยา</p>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2>ทักษะ</h2>
+
+    <h3>Hard Skills</h3>
+    <div class="skills-grid">
+      <div class="skill-item">HTML / CSS / JavaScript</div>
+      <div class="skill-item">UI/UX Design (Figma)</div>
+      <div class="skill-item">Git / GitHub</div>
+    </div>
+
+    <h3 style="margin-top:2rem;">Soft Skills</h3>
+    <div class="skills-grid">
+      <div class="skill-item">การสื่อสาร (Communication)</div>
+      <div class="skill-item">การทำงานเป็นทีม (Teamwork)</div>
+      <div class="skill-item">การแก้ปัญหา (Problem-Solving)</div>
+      <div class="skill-item">การจัดการเวลา (Time Management)</div>
+      <div class="skill-item">การเรียนรู้ต่อเนื่อง (Continuous Learning)</div>
+      <div class="skill-item">ความใส่ใจในรายละเอียด (Attention to Detail)</div>
+    </div>
+  </section>
+
+  <section id="projects">
+  <h2>โปรเจกต์</h2>
+  <div class="projects-grid">
+    <div class="project-item">
+      <h3>ห้องเช่าอัจฉริยะ</h3>
+      <img src="room.png" alt="ห้องเช่าอัจฉริยะ" class="clickable-img">
+      <p>เว็บไซต์ระบบจัดการห้องเช่าอัจฉริยะที่ช่วยให้ผู้ใช้เช็คค่าใช้จ่ายและสถานะห้องได้แบบเรียลไทม์</p>
+      <p>
+        link : 
+        <a href="https://github.com/Jakkarat138/Room" target="_blank">
+          https://github.com/Jakkarat138/Room
+        </a>
+      </p>
+    </div>
+
+    <div class="project-item">
+      <h3>เว็บไซต์ขายของออนไลน์</h3>
+      <img src="image.png" alt="เว็บไซต์ขายของออนไลน์" class="clickable-img">
+      <p>เว็บแอปขายสินค้าออนไลน์ เชื่อมต่อฐานข้อมูล และระบบตะกร้าสินค้า</p>
+      <p>
+        link : 
+        <a href="https://github.com/Jakkarat138/cartshop.git" target="_blank"> <br><br>
+          https://github.com/Jakkarat138/cartshop.git
+        </a>
+      </p>
+    </div>
+
+    <div class="project-item">
+      <h3>AI Machine Learning</h3>
+      <img src="Screenshot (😎.png" alt="AI Machine Learning" class="clickable-img">
+      <p>AI ทำนายชนิดดอกไม้</p>
+      <p>
+        link : 
+        <a href="https://github.com/Jakkarat138/ai.git" target="_blank"> <br><br><br><br>
+          https://github.com/Jakkarat138/ai.git
+        </a>
+      </p>
+    </div>
+  </div>
+</section>
+
+  <section id="activities">
+  <h2>กิจกรรมและความสำเร็จ (Activities & Achievements)</h2>
+  <div class="projects-grid">
+    <div class="project-item">
+      <h3>ร่วมกิจกรรมกับน้อง</h3>
+      <img src="sc.jpg" alt="Coding Hackathon" class="clickable-img">
+      <p>พาน้องทำกิจกรรมสันทนาการ</p>
+    </div>
+    <div class="project-item">
+      <h3>สอนน้องเรียนรู้เรื่อง AI</h3>
+      <img src="A.jpg" alt="สอนโปรแกรมมิ่ง" class="clickable-img">
+      <p>สอน AI ให้กับนักเรียน</p>
+    </div>
+  </div>
+</section>
+
+
+  <!-- Lightbox Overlay -->
+  <div id="lightbox" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); justify-content:center; align-items:center; z-index:1000;">
+    <img id="lightbox-img" src="" style="max-width:90%; max-height:90%; border-radius:10px; box-shadow:0 4px 15px rgba(0,0,0,0.3);">
+  </div>
+  <section id="goal">
+  <h2>เป้าหมาย (Goal)</h2>
+  <div class="card">
+    <p>
+      เป้าหมายของผมคือการพัฒนาทักษะด้านการเขียนโปรแกรมและออกแบบเว็บไซต์ให้เชี่ยวชาญมากยิ่งขึ้น  
+      โดยมุ่งมั่นที่จะเป็น <strong>Full Stack Developer</strong> ที่สามารถสร้างเว็บไซต์หรือระบบที่ตอบโจทย์ผู้ใช้งานได้จริง  
+      และสามารถทำงานร่วมกับทีมได้อย่างมีประสิทธิภาพ  
+      นอกจากนี้ ผมยังอยากต่อยอดความรู้ด้าน <strong>AI และ Machine Learning</strong>  
+      เพื่อนำมาประยุกต์ใช้กับการพัฒนาเว็บในอนาคต เพื่อสร้างประสบการณ์ผู้ใช้ที่ฉลาดและมีประสิทธิภาพมากขึ้น
+    </p>
+  </div>
+</section>
+
+
+  <section id="contact">
+    <h2>ติดต่อ</h2>
+    <div class="card contact-card">
+      <p>📧 66040233138@udru.ac.th</p>
+      <p>🌐 <a href="https://github.com/Jakkarat138">https://github.com/Jakkarat138</a></p>
+      <p>Facebook <a href="https://www.facebook.com/jakkarat.kaewpech">facebook.com/jakkarat.kaewpech</a></p>
+      <p>📱 095 342 1586</p>
+      <p>🏠 134 หมู่ 2 ตำบลสังคม อำเภอสังคม จังหวัดหนองคาย 43160</p>
+      <a href="#" class="btn">กลับไปด้านบน</a>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 Jakkarat Kaewpech | Crafted with 💙 and ☕
+  </footer>
+
+  <script>
+    // Lightbox Function
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const images = document.querySelectorAll('.clickable-img');
+
+    images.forEach(img => {
+      img.addEventListener('click', () => {
+        lightboxImg.src = img.src;
+        lightbox.style.display = 'flex';
+      });
+    });
+
+    lightbox.addEventListener('click', () => {
+      lightbox.style.display = 'none';
+    });
+  </script>
+
 </body>
 </html>
